@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+
+    <data class="CategoryClass">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.example.sampleui.model.Category" />
+
+        <variable
+            name="click"
+            type="View.OnClickListener" />
+
+        <variable
+            name="itemclick"
+            type="com.example.sampleui.RvClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:onClick="@{click::onClick }"
+        android:padding="@dimen/padding">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <ImageView
+                android:id="@+id/category_icon"
+                imageUrl="@{model.icon}"
+                android:layout_width="@dimen/small_width"
+                android:layout_height="@dimen/small_width"
+                android:src="@drawable/ic_search" />
+
+
+            <TextView
+                android:id="@+id/category_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding"
+                android:text="@{model.title}"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

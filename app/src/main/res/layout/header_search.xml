@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:orientation="vertical"
+
+    android:padding="@dimen/padding">
+
+    <TextView
+        android:id="@+id/location_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_med"
+        android:text="Deliver to"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_med"
+        android:src="@drawable/ic_dropdown"
+        android:tint="?attr/colorPrimaryVariant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/location_display"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:paddingStart="@dimen/padding"
+        android:paddingEnd="@dimen/padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/points_border"
+        android:layout_marginEnd="@dimen/margin_med"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding"
+            android:tint="?attr/colorPrimaryVariant"
+            android:src="@drawable/ic_gift"/>
+        <TextView
+            android:padding="@dimen/padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:text="0 pts"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

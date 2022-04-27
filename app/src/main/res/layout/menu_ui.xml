@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="MenuClass">
+
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.example.sampleui.model.MenuItems" />
+
+        <variable
+            name="click"
+            type="View.OnClickListener" />
+
+        <variable
+            name="itemclick"
+            type="com.example.sampleui.RvClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:onClick="@{click::onClick}"
+        android:background="@drawable/white_rect">
+
+        <ImageView
+            android:id="@+id/menu_image"
+            imageUrl="@{model.icon}"
+            android:layout_width="@dimen/small_width"
+            android:layout_height="@dimen/small_height"
+            android:layout_margin="@dimen/margin_med"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/menu_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_med"
+            android:text="@{model.title}"
+            app:layout_constraintEnd_toStartOf="@id/menu_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/menu_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_med"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:text="@{model.description}"
+            android:textColor="@color/gray_55"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@id/menu_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menu_name" />
+
+
+        <TextView
+            android:id="@+id/menu_cost"
+            currency="@{model.curr}"
+            rates="@{model.rate}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_med"
+            android:textColor="@color/orange_red"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/menu_image"
+            app:layout_constraintTop_toBottomOf="@id/menu_desc" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

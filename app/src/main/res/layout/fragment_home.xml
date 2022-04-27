@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="HomeClass">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.example.sampleui.model.HomeModel" />
+
+        <variable
+            name="click"
+            type="View.OnClickListener" />
+
+        <variable
+            name="itemclick"
+            type="com.example.sampleui.RvClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ui.home.HomeFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+
+
+        <include
+            android:id="@+id/head"
+            layout="@layout/header_search" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/offers_recycler"
+            click="@{itemclick}"
+            layout="@{@layout/card_offer_ui}"
+            list="@{model.offers}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_med"
+            android:layout_marginBottom="@dimen/margin_small"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/categories_recycler"
+            tools:listitem="@layout/card_offer_ui" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categories_recycler"
+            click="@{itemclick}"
+            layout="@{@layout/card_category_ui}"
+            list="@{model.category}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_med"
+            android:layout_marginBottom="@dimen/margin_small"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            app:layout_constraintTop_toBottomOf="@id/head"
+            app:layout_goneMarginTop="@dimen/margin_med"
+             />
+        <LinearLayout
+            android:id="@+id/linear"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include
+
+                android:id="@+id/add_to"
+                layout="@layout/checkout_bar" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

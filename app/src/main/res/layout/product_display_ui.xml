@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.example.sampleui.model.Restaurant" />
+
+        <variable
+            name="click"
+            type="View.OnClickListener" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/display_card_height"
+        android:layout_margin="@dimen/margin_small"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:onClick="@{click::onClick}"
+        app:cardCornerRadius="@dimen/margin_med">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/display_image"
+                    imageUrl="@{model.icon}"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:paddingBottom="@dimen/margin_med"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/display_offer"
+                    offers="@{model.offers}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:maxWidth="100dp"
+                    android:padding="@dimen/padding"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/display_bookmark"
+                    bookmarked="@{model.bookmarked}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:padding="@dimen/padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/display_promoted"
+                    promoted="@{model.promoted}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:padding="@dimen/padding"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/display_delivery_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:background="@drawable/white_rect"
+                    android:padding="@dimen/padding"
+                    android:text="@{model.avgTime}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <TextView
+                    android:id="@+id/display_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{model.title}"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toStartOf="@id/display_ratings"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/display_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{model.description}"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@id/display_estimate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/display_name" />
+
+                <TextView
+                    android:id="@+id/display_estimate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{model.avgCost}"
+                    android:textColor="@color/dark_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/display_ratings" />
+
+
+                <TextView
+                    android:id="@+id/display_ratings"
+                    ratingBG="@{model.rating}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:drawableEnd="@drawable/ic_baseline_stars_24"
+                    android:drawablePadding="@dimen/cardview_default_radius"
+                    android:padding="@dimen/padding"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

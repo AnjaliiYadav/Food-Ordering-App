@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="CheckoutClass">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.example.sampleui.model.CartModel" />
+
+        <variable
+            name="click"
+            type="View.OnClickListener" />
+
+        <variable
+            name="itemclick"
+            type="com.example.sampleui.RvClickListener" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ui.checkout.CheckoutFragment">
+
+        <TextView
+            android:id="@+id/restaurant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_med"
+            android:text="@{model.restaurantName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/items"
+            click="@{itemclick}"
+            layout="@{@layout/checkout_items}"
+            list="@{model.cartItems}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/restaurant_name"
+            tools:listitem="@layout/checkout_items" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_med"
+            android:layout_marginEnd="@dimen/margin_med"
+            android:layout_marginBottom="@dimen/margin_med"
+            android:backgroundTint="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/pay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/items">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:padding="@dimen/padding"
+                android:text="@string/total" />
+
+
+            <TextView
+                amount="@{model.totalAmount}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding"
+                android:layout_weight="1"
+                android:gravity="start" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            android:backgroundTint="@color/orange_red"
+            android:padding="@dimen/padding"
+            android:text="@string/pay"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
