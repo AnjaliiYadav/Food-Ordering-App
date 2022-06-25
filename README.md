@@ -3,11 +3,11 @@
 This repository contains a detailed sample app that implements MVVM architecture using Hilt, Coroutines, Glide, FirebaseFirestore, LiveData, BindingAdapter. Uses Generics to reduce the boilerplate code.
 
 ### The app has following packages: ###
-adapter: Generic adapter class for all RecyclerViews 
-di: Dependency providing classes using Hilt.
-model: It contains all the data models.
-ui: View classes along with their corresponding ViewModel.
-utils: Utility classes.
+* adapter: Generic adapter class for all RecyclerViews 
+* di: Dependency providing classes using Hilt.
+* model: It contains all the data models.
+* ui: View classes along with their corresponding ViewModel.
+* utils: Utility classes.
 
 
 ## Firebase Structure ##
